@@ -1,50 +1,60 @@
-package teaimg;
+// package jpg;
 
 import org.apache.commons.cli.*;
 
-public class App {
-  public static void main(String[] args) {
-  }
+import java.io.File;
+import java.io.file;
 
-  static void options() {
-    Options opts = new Options();
-    Option help = new Option("Help", "help", false, "Show the help menu");
+public class Main {
+    public static void main(String[] args) {
+    }
 
-    Option image = Option
-        .builder("i")
-        .longOpt("image")
-        .argName("image")
-        .hasArg()
-        .required(true)
-        .desc("Image file name").build();
+    static void options() {
+        Options opts = new Options();
+        Option help = new Option("Help", "help", false, "Show the help menu");
 
-    Option fromType = Option
-        .builder("f")
-        .longOpt("from")
-        .argName("string")
-        .hasArg()
-        .required(true)
-        .desc("Type to convert from (can be detected automatically if not specified)").build();
+        Option image = Option
+                .builder("i")
+                .longOpt("image")
+                .argName("image")
+                .hasArg()
+                .required(true)
+                .desc("Image file name").build();
 
-    Option toType = Option
-        .builder("t")
-        .longOpt("to")
-        .argName("string")
-        .hasArg()
-        .required(true)
-        .desc("Type to conver to").build();
+        Option fromType = Option
+                .builder("f")
+                .longOpt("from")
+                .argName("string")
+                .hasArg()
+                .required(true)
+                .desc("Type to convert from (can be detected automatically if not specified)").build();
 
-    opts.addOption(help);
-    opts.addOption(image);
-    opts.addOption(fromType);
-    opts.addOption(toType);
-  }
+        Option toType = Option
+                .builder("t")
+                .longOpt("to")
+                .argName("string")
+                .hasArg()
+                .required(true)
+                .desc("Type to conver to").build();
 
-  static void getImage() {
+        opts.addOption(help);
+        opts.addOption(image);
+        opts.addOption(fromType);
+        opts.addOption(toType);
+    }
 
-  }
+    static void getImage(String imagePath) {
+        File imgFile = new File(imagePath);
+        if (!imgFile.exists()) {
+            System.err.println("The image " + imagePath + " does not exist");
+        } else if (imgFile.isDirectory()) {
+            System.err.println("The path provided is a directory: " + imagePath);
+        } else {
 
-  static void convert() {
+        }
+    }
 
-  }
+    static void convert() {
+
+    }
 }
